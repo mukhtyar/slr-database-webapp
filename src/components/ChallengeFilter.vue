@@ -1,6 +1,8 @@
 <template>
-  <div class="category challenge" v-on:change="onUpdate">
-    <checkbox v-for="option in options" :id="option.name" :val="option" v-model="selected">{{ option.name }}</checkbox>
+  <div v-on:change="onUpdate" class="container">
+    <checkbox v-for="option in options" :key="option.id" :id="option.id" :val="option" v-model="selected">
+      {{ option.text }}
+    </checkbox>
   </div>
 </template>
 
@@ -9,7 +11,7 @@ import Checkbox from './../components/Checkbox';
 import options from './../assets/data/challenge';
 
 export default {
-  name: 'phaseFilter',
+  text: 'phaseFilter',
 
   components: {
     Checkbox,
@@ -32,7 +34,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .category .checkbox {
-    /*margin: 10px 0;*/
-  }
 </style>

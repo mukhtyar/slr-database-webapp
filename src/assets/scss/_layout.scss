@@ -14,61 +14,36 @@
     }
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 15px;
+.page-container {
+  margin: 0px auto;
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+  @include clearfix();
 }
 
-.container-large {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 15px;
-    @include clearfix();
+.row > div:focus {
+  outline: none;
 }
 
-.col-half {
-    position: relative;
-    min-height: 1px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-
-    @media (min-width: 700px) {
-        width: 50%;
-        float: left;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-
-.grid {
+/* .grid {
   display: flex;
   flex-flow: row wrap;
   padding: 0.75vw;
 }
 
 .grid .item {
-  margin: 0.75vw;
-  background-image: linear-gradient(to right, #ece9e6, #ffffff);
+  margin: 0;
 }
 
-.grid .item.hero  { flex: 0 1 calc(100% - 1.5vw); }
-.grid .item.big  { flex: 0 1 calc(100% - 1.5vw); }
-.grid .item.medium  { flex: 0 1 calc(100% - 1.5vw); }
-.grid .item.small  { flex: 0 1 calc(50% - 1.5vw); }
+.grid .item.full  { flex: 1 1 calc(100% - 0); }
+.grid .item.half  { flex: 1 1 calc(100% - 0); }
+.grid .item.quarter  { flex: 1 1 calc(50% - 0); }
+.grid .item.threequarter  { flex: 1 1 calc(50% - 0); }
 
 @media screen and (min-width: 750px) {
-  .grid .item.big  { flex: 0 1 calc(60% - 1.5vw); }
-  .grid .item.medium  { flex: 0 1 calc(40% - 1.5vw);}
-  .grid .item.small  { flex: 0 1 calc(33.333% - 1.5vw); }
-}
-
-@media screen and (min-width: 1400px) {
-  .grid .item.big  { flex: 0 1 calc(60% - 1.5vw); }
-  .grid .item.medium  { flex: 0 1 calc(40% - 1.5vw); }
-  .grid .item.small  { flex: 0 1 calc(25% - 1.5vw); }
+  .grid .item.half  { flex: 1 1 calc(50% - 0); }
+  .grid .item.quarter  { flex: 1 1 calc(25% - 0); }
+  .grid .item.threequarter  { flex: 1 1 calc(75% - 0); }
 }
 
 .box {
@@ -80,7 +55,7 @@
 
 .grid .item {
   position: relative;
-  padding: 1vw;
+  padding: 0;
   background-position:  left bottom;
   transition: background 500ms, outline 500ms;
   background-position: top left;
@@ -94,4 +69,4 @@
 
 .grid .item:focus {
   outline: 2px solid #3eabfa;
-}
+} */

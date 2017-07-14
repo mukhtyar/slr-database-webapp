@@ -1,27 +1,27 @@
 export default [
   {
     id: 1,
-    name: 'Identifying risks and vulnerabilities',
+    text: 'Identifying risks and vulnerabilities',
   },
   {
     id: 2,
-    name: 'Planning, assessing and selecting options',
+    text: 'Planning, assessing and selecting options',
   },
   {
     id: 3,
-    name: 'Implementation',
+    text: 'Implementation',
   },
   {
     id: 4,
-    name: 'Monitor and evaluate',
+    text: 'Monitor and evaluate',
   },
   {
     id: 5,
-    name: 'Revise strategy and research; share lessons learned',
+    text: 'Revise strategy and research; share lessons learned',
   },
   {
     id: 6,
-    name: 'Other',
+    text: 'Other',
   },
 ];
 

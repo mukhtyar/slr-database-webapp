@@ -1,30 +1,30 @@
 export default [
   {
     id: 1,
-    name: 'Central Coast',
+    text: 'Central Coast',
   },
   {
     id: 2,
-    name: 'Delta',
+    text: 'Delta',
   },
   {
     id: 3,
-    name: 'Los Angeles Area',
+    text: 'Los Angeles Area',
   },
   {
     id: 4,
-    name: 'North Coast',
+    text: 'North Coast',
   },
   {
     id: 5,
-    name: 'San Diego',
+    text: 'San Diego',
   },
   {
     id: 6,
-    name: 'SF Bay Area',
+    text: 'SF Bay Area',
   },
   {
     id: 7,
-    name: 'Statewide',
+    text: 'Statewide',
   },
 ];

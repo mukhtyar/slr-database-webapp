@@ -1,0 +1,27 @@
+id,place,region
+1,Santa Cruz,Central Coast
+2,Monterey,Central Coast
+3,San Luis Obispo,Central Coast
+4,Santa Barbara,Central Coast
+5,Ventura,Central Coast
+6,Sacramento,Delta
+7,San Joaquin,Delta
+8,Yolo,Delta
+9,Solano,Delta
+10,Contra Costa,Delta
+11,Orange,Los Angeles Area
+12,Ventura,Los Angeles Area
+13,Los Angeles,Los Angeles Area
+14,Del Norte,North Coast
+15,Humboldt,North Coast
+16,Mendocino,North Coast
+17,San Diego,San Diego
+18,Sonoma,SF Bay Area
+19,Marin,SF Bay Area
+20,San Francisco,SF Bay Area
+21,San Mateo,SF Bay Area
+22,Alameda,SF Bay Area
+23,Santa Clara,SF Bay Area
+24,Napa,SF Bay Area
+25,Contra Costa,SF Bay Area
+26,Statewide,Statewide

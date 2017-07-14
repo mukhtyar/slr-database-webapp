@@ -1,0 +1,20 @@
+/*ANIMATIONS*/
+@-webkit-keyframes flyIn {
+  from {padding: 0vh 80px 0px 80px;}
+  to {padding: 45vh 80px 0px 80px;}
+}
+
+@keyframes flyIn {
+  from {padding: 0vh 80px 0px 80px;}
+  to {padding: 45vh 80px 0px 80px;}
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

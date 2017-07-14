@@ -1,55 +1,55 @@
 export default [
   {
     id: 1,
-    name: 'Funding',
+    text: 'Funding',
   },
   {
     id: 2,
-    name: 'Staff time',
+    text: 'Staff time',
   },
   {
     id: 3,
-    name: 'Staff expertise',
+    text: 'Staff expertise',
   },
   {
     id: 4,
-    name: 'Insufficient data',
+    text: 'Insufficient data',
   },
   {
     id: 5,
-    name: 'Guidance on data',
+    text: 'Guidance on data',
   },
   {
     id: 6,
-    name: 'Champions',
+    text: 'Champions',
   },
   {
     id: 7,
-    name: 'Public support',
+    text: 'Public support',
   },
   {
     id: 8,
-    name: 'Working across city lines',
+    text: 'Working across city lines',
   },
   {
     id: 9,
-    name: 'Turning plans into action',
+    text: 'Turning plans into action',
   },
   {
     id: 10,
-    name: 'Legal issues',
+    text: 'Legal issues',
   },
   {
     id: 11,
-    name: 'SLR not a required action',
+    text: 'SLR not a required action',
   },
   {
     id: 12,
-    name: 'Development pressure',
+    text: 'Development pressure',
   },
   {
     id: 13,
-    name: 'Other',
+    text: 'Other',
   },
 ];
 

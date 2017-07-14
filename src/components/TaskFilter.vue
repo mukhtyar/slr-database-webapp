@@ -8,10 +8,10 @@
 
 <script>
 import Checkbox from './../components/Checkbox';
-import options from './../assets/data/phase';
+import options from './../assets/data/task';
 
 export default {
-  text: 'phaseFilter',
+  text: 'taskFilter',
 
   components: {
     Checkbox,
@@ -31,10 +31,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .category .checkbox {
-    /*margin: 10px 0;*/
-  }
-</style>
