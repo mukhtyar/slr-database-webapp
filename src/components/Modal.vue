@@ -1,8 +1,8 @@
 <template>
-  <div id="modal" class="modal-mask" v-show="show" transition="modal">
+  <div id="modal" class="modal-mask" @click="close" v-show="show" transition="modal">
     <div class="modal-container">
       <h4>Hello</h4>
-      <button @click="showModal = false">Hide</button>
+      <button @click="close">Hide</button>
     </div>
   </div>
 </template>
@@ -11,10 +11,22 @@
 export default {
   name: 'modal',
 
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
+  data() {
+    return {
+      show: false,
+      data: {},
+    };
+  },
+
+  methods: {
+    close() {
+      this.show = false;
+    },
+    open() {
+      this.show = true;
+    },
+    set(data) {
+      this.data = data;
     },
   },
 };

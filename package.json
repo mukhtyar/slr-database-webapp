@@ -11,6 +11,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "modal-vue": "0.0.3",
+    "tingle.js": "^0.11.0",
     "vue": "^2.3.3"
   },
   "devDependencies": {

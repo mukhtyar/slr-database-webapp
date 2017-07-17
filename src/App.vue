@@ -76,7 +76,7 @@
         <div class="green" div v-if="rowsToRender.length != 0">
           Resources: <span>{{ rowsToRender.length }}</span>
         </div>
-        <div v-for="row in rowsToRender" v-on:click="displayArticle(row)" class="article">
+        <div v-for="row in rowsToRender" @click="displayRowDetail(row)" class="article">
           <h6 class="article-title">{{ row.title }}</h6>
           <div class="list article-authors">
             <ul>
@@ -106,17 +106,15 @@
 
     </div>
 
-    <modal :show.sync="showModal"></modal>
-    <button @click="showModal = true">New Post</button>
-
   </div>
 </template>
 
 <script>
+import tingle from 'tingle.js';
+import 'tingle.js/dist/tingle.css';
 import PhaseFilter from './components/PhaseFilter';
 import ChallengeFilter from './components/ChallengeFilter';
 import TaskFilter from './components/TaskFilter';
-import Modal from './components/Modal';
 import data from './assets/data/data';
 import resourceTypes from './assets/data/resource';
 import places from './assets/data/place';
@@ -129,7 +127,6 @@ export default {
     ChallengeFilter,
     PhaseFilter,
     TaskFilter,
-    Modal,
   },
   data() {
     return {
@@ -171,9 +168,43 @@ export default {
     updateTaskFilters(value) {
       this.taskFilters = value.map(d => d.id);
     },
-    displayArticle(e) {
-      console.log(e);
+    displayRowDetail(row) {
+      console.log(row);
+      /* eslint-disable */
+      // instanciate new modal
+      const modal = new tingle.modal({
+        footer: true,
+        stickyFooter: false,
+        closeMethods: ['overlay', 'button', 'escape'],
+        closeLabel: "Close",
+        cssClass: ['custom-class-1', 'custom-class-2'],
+        onOpen: function() {
+            console.log('modal open');
+        },
+        onClose: function() {
+            console.log('modal closed');
+        },
+        beforeClose: function() {
+            // here's goes some logic
+            // e.g. save content before closing the modal
+          return true; // close the modal
+          return false; // nothing happens
+        }
+      });
+
+      // set content
+      modal.setContent(`${row.title}`);
+
+      // add a button
+      modal.addFooterBtn('Link to Resource', 'tingle-btn tingle-btn--primary', function() {
+          // here goes some logic
+          modal.close();
+      });
+
+      // open modal
+      modal.open();
     },
   },
 };
 </script>
+
