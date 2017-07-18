@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 5,
-    text: 'San Diego',
+    text: 'San Diego Area',
   },
   {
     id: 6,

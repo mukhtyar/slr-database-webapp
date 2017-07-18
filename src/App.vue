@@ -43,28 +43,12 @@
             </div>
           </div>
           <div class="col-xs-12">
-            <div class="category category-place">
-              <div class="box">
-                <span>
-                  Filter by Region
-                </span>
-                <select>
-                  <option>1</option>
-                  <option>2</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12">
             <div class="category category-resource">
               <div class="box">
-                <span>
-                  Filter by Resource Type
-                </span>
-                <select>
-                  <option>1</option>
-                  <option>2</option>
-                </select>
+                <h5>
+                  Filter by Region:
+                </h5>
+                <regionFilter v-on:change="updateRegionFilter"></regionFilter>
               </div>
             </div>
           </div>
@@ -74,33 +58,35 @@
 
       <div class="col-xs-9 results" tabindex="1">
         <div class="green" div v-if="rowsToRender.length != 0">
-          Resources: <span>{{ rowsToRender.length }}</span>
+          <span>{{ rowsToRender.length }}</span> resources. Click on a resource to see more details.
         </div>
-        <div v-for="row in rowsToRender" @click="displayRowDetail(row)" class="article">
-          <h6 class="article-title">{{ row.title }}</h6>
-          <div class="list article-authors">
-            <ul>
-              <li v-for="author in row.author" class="author">{{ author }}</li>
-            </ul>
+        <transition-group name="list">
+          <div v-for="row in rowsToRender" @click="displayRowDetail(row)" :key="row.id" class="article">
+            <h6 class="article-title">{{ row.title }}</h6>
+            <div class="list article-authors">
+              <ul>
+                <li v-for="author in row.author" class="author">{{ author }}</li>
+              </ul>
+            </div>
+            <div class="list">
+              <span class="article-date green">{{ row.pubdate }}</span>
+              <ul class="article-type">
+                <li v-for="item in row.resourceType" class="tag">{{ resourceTypes[item].text }}</li>
+              </ul>
+              <ul class="article-location">
+                <li v-for="item in row.county" class="purple">{{ counties[item].name }} County</li>
+              </ul>
+            </div>
+            <div class="list article-keywords">
+              <span>Keywords:</span>
+              <ul>
+                <li v-for="keyword in row.keywords" class="keyword">{{ keyword }}</li>
+              </ul>
+            </div>
           </div>
-          <div class="list">
-            <span class="article-date green">{{ row.pubdate }}</span>
-            <ul class="article-type">
-              <li v-for="item in row.resourceType" class="tag">{{ resourceTypes[item].text }}</li>
-            </ul>
-            <ul class="article-location">
-              <li v-for="item in row.county" class="purple">{{ places[item].place }} County</li>
-            </ul>
-          </div>
-          <div class="list article-keywords">
-            <span>Keywords:</span>
-            <ul>
-              <li v-for="keyword in row.keywords" class="keyword">{{ keyword }}</li>
-            </ul>
-          </div>
-        </div>
+        </transition-group>
         <div v-if="rowsToRender.length == 0">
-          <p class="message">Sorry, no resources were found matching you criteria.</p>
+          <p class="message">Sorry, no resources were found matching the criteria you selected.</p>
         </div>
       </div>
 
@@ -115,9 +101,11 @@ import 'tingle.js/dist/tingle.css';
 import PhaseFilter from './components/PhaseFilter';
 import ChallengeFilter from './components/ChallengeFilter';
 import TaskFilter from './components/TaskFilter';
+import RegionFilter from './components/RegionFilter';
 import data from './assets/data/data';
 import resourceTypes from './assets/data/resource';
-import places from './assets/data/place';
+import counties from './assets/data/county';
+import regions from './assets/data/region';
 
 const findOne = (haystack, arr) => arr.some(v => haystack.indexOf(v) >= 0);
 
@@ -127,6 +115,7 @@ export default {
     ChallengeFilter,
     PhaseFilter,
     TaskFilter,
+    RegionFilter,
   },
   data() {
     return {
@@ -134,9 +123,10 @@ export default {
       phaseFilters: [],
       challengeFilters: [],
       taskFilters: [],
+      regionFilter: null,
       resourceTypes,
-      places,
-      showModal: false,
+      counties,
+      regions,
     };
   },
   computed: {
@@ -145,6 +135,7 @@ export default {
       const phases = this.phaseFilters;
       const challenges = this.challengeFilters;
       const tasks = this.taskFilters;
+      const region = this.regionFilter;
       if (tasks.length > 0) {
         filtered = filtered.filter(item => findOne(item.task, tasks));
       }
@@ -153,6 +144,13 @@ export default {
       }
       if (phases.length > 0) {
         filtered = filtered.filter(item => findOne(item.phase, phases));
+      }
+      if (this.regionFilter && this.regionFilter !== '') {
+        filtered = filtered.filter((item) => {
+          const countyId = item.county;
+          const regionArr = counties[countyId].region;
+          return regionArr.some(v => v === region);
+        });
       }
 
       return filtered;
@@ -168,6 +166,9 @@ export default {
     updateTaskFilters(value) {
       this.taskFilters = value.map(d => d.id);
     },
+    updateRegionFilter(value) {
+      this.regionFilter = value;
+    },
     displayRowDetail(row) {
       console.log(row);
       /* eslint-disable */
@@ -176,30 +177,46 @@ export default {
         footer: true,
         stickyFooter: false,
         closeMethods: ['overlay', 'button', 'escape'],
-        closeLabel: "Close",
-        cssClass: ['custom-class-1', 'custom-class-2'],
-        onOpen: function() {
-            console.log('modal open');
-        },
-        onClose: function() {
-            console.log('modal closed');
-        },
-        beforeClose: function() {
-            // here's goes some logic
-            // e.g. save content before closing the modal
+        closeLabel: 'Close',
+        cssClass: ['resource-detail'],
+        beforeClose() {
+          console.log('increment count');
           return true; // close the modal
-          return false; // nothing happens
         }
       });
 
       // set content
-      modal.setContent(`${row.title}`);
-
-      // add a button
-      modal.addFooterBtn('Link to Resource', 'tingle-btn tingle-btn--primary', function() {
-          // here goes some logic
-          modal.close();
-      });
+      modal.setContent(`
+        <div class="article detail">
+          <h5 class="article-title">${row.title}</h5>
+          <div class="list article-authors">
+            <ul>
+              ${row.author.map(author => `<li class="author">${author}</li>`)}
+            </ul>
+          </div>
+          <div class="list">
+            <span class="article-date green">${row.pubdate}</span>
+            <ul class="article-type">
+              ${row.resourceType.map(item => `<li class="tag">${resourceTypes[item].text}</li>`)}
+            </ul>
+            <ul class="article-location">
+              ${row.county.map(item => `<li class="purple">${counties[item].name} County</li>`)}
+            </ul>
+          </div>
+          <div class="list article-keywords">
+            <span>Keywords:</span>
+            <ul>
+              ${row.keywords.map(item => `<li class="keyword">${item}</li>`)}
+            </ul>
+          </div>
+          <div class="article-desc">
+           <p>${row.description}</p>
+          </div>
+          <div class="article-link">
+           <a href="${row.link}" target="_blank">Link to Resource</a>
+          </div>
+        </div>
+      `);
 
       // open modal
       modal.open();
@@ -207,4 +224,3 @@ export default {
   },
 };
 </script>
-

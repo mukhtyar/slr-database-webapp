@@ -1,5 +1,6 @@
 export default [
   {
+    id: 1,
     title: '2016 City of Monterey Sea Level Rise and Vulnerability Analyzes – Existing Conditions and Issues',
     description: 'Detailed sector based assessment of the impacts of coastal hazards and sea level rise.  This assessment was designed as a first step in completing the local coastal program requirements',
     pubdate: 2016,
@@ -13,6 +14,7 @@ export default [
     link: 'http://www.monterey.org/Portals/0/Policies-Procedures/Planning/WorkProgram/LCP/16_0316_FINAL_Monterey_ExistingConditions_wAppendixA_WEB.pdf',
   },
   {
+    id: 2,
     title: 'City of Pacific Grove Climate Change Vulnerability Assessment',
     description: 'City specific example of a vulnerability assessment. Uses guidance from the state to assess exposure, sensitivity, potential impacts, adaptive capacity, and risk for a number of key city assets.  This assessment covers sea level rise as part of a fuller suite of climate change impacts.',
     pubdate: 2015,
@@ -26,6 +28,7 @@ export default [
     link: 'http://www.cityofpacificgrove.org/sites/default/files/general-documents/local-coastal-program/pg-lcp-final-vulnerability-assessment-011515.pdf',
   },
   {
+    id: 3,
     title: 'City of Santa Barbara Sea Level Rise Vulnerability Assessment - Full Report',
     description: 'Thorough assessment of vulnerability including analysis of exposure, sensitivity and adaptive capacity.',
     pubdate: 2015,
@@ -39,6 +42,7 @@ export default [
     link: 'http://www.esm.ucsb.edu/research/2015Group_Projects/documents/SeaLevelRiseSB_Thesis.pdf',
   },
   {
+    id: 4,
     title: 'City of Santa Barbara Sea-Level Rise Vulnerability Assessment: A Summary Report',
     description: "A web based summary of the full California Energy Commission report on the City of Santa Barbara's sea level rise vulnerability.",
     pubdate: 2014,
@@ -52,6 +56,7 @@ export default [
     link: 'http://coastalcare.org/2014/06/city-of-santa-barbara-sea-level-rise-vulnerability-assessment-a-summary-report/',
   },
   {
+    id: 5,
     title: 'City of Santa Cruz City Climate Change Vulnerability Assessment',
     description: 'Initial assessment of vulnerability and likely impacts to sea level rise in the City of Santa Cruz.  Includes possible actions for specific threats.',
     pubdate: 2011,
@@ -65,6 +70,7 @@ export default [
     link: 'https://seymourcenter.ucsc.edu/OOB/SCClimateChangeVulnerabilityAssessment.pdf',
   },
   {
+    id: 6,
     title: 'Developing Adaptation Strategies for San Luis Obispo County: Preliminary Climate Change Vulnerability Assessment for Social Systems',
     description: 'Unlike many other assessments, report focuses on the social systems of San Luis Obispo County and how they will interact with climate change.  Looks at demographics, economic sectors, and community services.',
     pubdate: 2012,
@@ -78,6 +84,7 @@ export default [
     link: 'http://www.energy.ca.gov/2012publications/CEC-500-2012-054/CEC-500-2012-054.pdf',
   },
   {
+    id: 7,
     title: 'Monterey Bay Sea Level Rise and Vulnerability Assessment - Technical Methods Report',
     description: 'Detailed spatial analysis of erosion and inundation under future sea level rise scenarios.',
     pubdate: 2014,
@@ -91,6 +98,7 @@ export default [
     link: 'http://montereybay.noaa.gov/resourcepro/resmanissues/pdf/140616erosion-vuln_tech-methods.pdf',
   },
   {
+    id: 8,
     title: 'Projected Future Climatic and Ecological Conditions in San Luis Obispo County',
     description: 'County scale climate change projections.  They are designed to inform local long?term planning and decision making.  This report includes sea level rise along side other climate impacts.',
     pubdate: 2010,
@@ -104,6 +112,7 @@ export default [
     link: 'http://www.lgc.org/wordpress/docs/adaptation/slo/SLOModelReport_FINALsmall.pdf',
   },
   {
+    id: 9,
     title: 'Santa Barbara County Coastal Resiliency Project',
     description: "Website provides summary information into Santa Barbara County's multi-year effort to evaluated the impacts of sea level rise.  Ultimately the goal is use this information to promote policies to mitigate the impacts of coastal hazards.",
     pubdate: 2016,
@@ -117,6 +126,7 @@ export default [
     link: 'http://longrange.sbcountyplanning.org/programs/Coastal Resiliency Project/coastalresiliency.php',
   },
   {
+    id: 10,
     title: 'Sea level rise and coastal flood risk: Summary for Monterey County, CA',
     description: 'Summary of findings from Climate Central’s Surging Seas Risk Finder tool.  Provides an initial estimate of assets and people exposed to future flood events.',
     pubdate: 2016,
@@ -130,6 +140,7 @@ export default [
     link: 'http://ssrf.climatecentral.org.s3-website-us-east-1.amazonaws.com/Buffer2/states/CA/downloads/pdf_reports/County/CA_Monterey_County-report.pdf',
   },
   {
+    id: 11,
     title: 'Sea level rise and coastal flood risk: Summary for San Luis Obispo County, CA',
     description: 'Summary of findings from Climate Central’s Surging Seas Risk Finder tool.  Provides an initial estimate of assets and people exposed to future flood events.',
     pubdate: 2016,
@@ -143,6 +154,7 @@ export default [
     link: 'http://ssrf.climatecentral.org.s3-website-us-east-1.amazonaws.com/Buffer2/states/CA/downloads/pdf_reports/County/CA_San_Luis_Obispo_County-report.pdf',
   },
   {
+    id: 12,
     title: 'Sea level rise and coastal flood risk: Summary for Santa Barbara County, CA',
     description: 'Summary of findings from Climate Central’s Surging Seas Risk Finder tool.  Provides an initial estimate of assets and people exposed to future flood events.',
     pubdate: 2016,
@@ -156,6 +168,7 @@ export default [
     link: 'http://ssrf.climatecentral.org.s3-website-us-east-1.amazonaws.com/Buffer2/states/CA/downloads/pdf_reports/County/CA_Santa_Barbara_County-report.pdf',
   },
   {
+    id: 13,
     title: 'Sea level rise and coastal flood risk: Summary for Santa Cruz County, CA',
     description: 'Summary of findings from Climate Central’s Surging Seas Risk Finder tool.  Provides an initial estimate of assets and people exposed to future flood events.',
     pubdate: 2016,
@@ -169,6 +182,7 @@ export default [
     link: 'http://ssrf.climatecentral.org.s3-website-us-east-1.amazonaws.com/Buffer2/states/CA/downloads/pdf_reports/County/CA_Santa_Cruz_County-report.pdf',
   },
   {
+    id: 14,
     title: 'Sea level rise and coastal flood risk: Summary for Ventura County, CA',
     description: 'Summary of findings from Climate Central’s Surging Seas Risk Finder tool.  Provides an initial estimate of assets and people exposed to future flood events.',
     pubdate: 2016,
@@ -182,6 +196,7 @@ export default [
     link: 'http://ssrf.climatecentral.org.s3-website-us-east-1.amazonaws.com/Buffer2/states/CA/downloads/pdf_reports/County/CA_Ventura_County-report.pdf',
   },
   {
+    id: 15,
     title: 'City of Santa Barbara Climate Action Plan',
     description: 'City specific climate action plan.  It covers both climate mitigation and climate adaptation.',
     pubdate: 2012,
@@ -195,6 +210,7 @@ export default [
     link: 'https://www.santabarbaraca.gov/civicax/filebank/blobdload.aspx?BlobID=17720',
   },
   {
+    id: 16,
     title: 'County of San Luis Obispo Energy Wise Plan - Chapter 7 - Adaptation',
     description: "A chapter of the county's climate action plan. The section identifies climate change impacts and actions based on timing of when it should start.  This report includes sea level rise along side other climate impacts.",
     pubdate: 2011,
@@ -208,6 +224,7 @@ export default [
     link: 'http://www.slocounty.ca.gov/Assets/PL/CAP-LUCE/final/7-SLOCoEWP_Ch7.pdf',
   },
   {
+    id: 17,
     title: 'Evaluation of Erosion Mitigation Alternatives for Southern Monterey Bay',
     description: 'Recommendations for regional and subregional solutions to erosion.  Also includes a detailed evaluation of erosion mitigation measures.',
     pubdate: 2012,
@@ -221,6 +238,7 @@ export default [
     link: 'http://montereybay.noaa.gov/new/2012/erosion.pdf',
   },
   {
+    id: 18,
     title: 'Goleta Slough 2015 Management Plan',
     description: 'Assesses vulnerability and risk to both environmental and human resources.  Recommends policies and potential adaptation strategies. Integrates the interests of multiple stakeholders.  Could be used to guide local planning.',
     pubdate: 2015,
@@ -234,6 +252,7 @@ export default [
     link: 'http://www.goletaslough.org/committee/2016-goleta-slough-management-plan/',
   },
   {
+    id: 19,
     title: 'City of Santa Cruz Climate Adaptation Plan',
     description: 'FEMA approved update to the local hazard mitigation plan.  This version focuses on climate change considerations including sea level rise.',
     pubdate: 2011,
@@ -247,6 +266,7 @@ export default [
     link: 'http://www.cityofsantacruz.com/home/showdocument?id=23644',
   },
   {
+    id: 20,
     title: 'City of Goleta Coastal Hazards Vulnerability and Fiscal Impact Report',
     description: 'City specific science-based assessment informed by local stakeholders.  Provides recommended actions for the city.',
     pubdate: 2015,
@@ -260,6 +280,7 @@ export default [
     link: 'http://www.cityofgoleta.org/home/showdocument?id=11317',
   },
   {
+    id: 21,
     title: 'Coastal Resilience Project - Ventura County',
     description: 'Decision-support network (including website) which includes short write ups about the challenges and suggested solutions for participating communities.  Also provides tools and information about coastal resilience.',
     pubdate: 2016,
@@ -273,6 +294,7 @@ export default [
     link: 'http://coastalresilience.org/project/ventura-county/',
   },
   {
+    id: 22,
     title: 'City of Santa Barbara Sea Level Rise Vulnerability Study',
     description: 'Initial assessment of vulnerability and likely impacts to sea level rise in the City of Santa Barbara.  Includes possible actions for specific threats.',
     pubdate: 2012,
@@ -286,6 +308,7 @@ export default [
     link: 'http://www.energy.ca.gov/2012publications/CEC-500-2012-039/CEC-500-2012-039.pdf',
   },
   {
+    id: 23,
     title: 'Morro Bay National Estuary Program Climate Vulnerability Assessment Report',
     description: 'Analysis of the likelihood and severity of climate change including sea level rise.  Specifically focused on the goals of the Estuary Program.  Provides adaptation action options to prepare.',
     pubdate: 2015,
@@ -299,6 +322,7 @@ export default [
     link: 'http://www.mbnep.org/wp-content/uploads/2016/11/Climate_Report_FINAL_11-30-2016_for-web.pdf',
   },
   {
+    id: 24,
     title: 'Santa Barbara County 2016 Multi-Jurisdictional Hazard Mitigation Plan',
     description: 'FEMA approved Multi-Jurisdictional Hazard Mitigation Plan which includes climate change considerations.  Sea level rise is included in Sections 5, 6 and 7',
     pubdate: 2016,
@@ -312,6 +336,7 @@ export default [
     link: 'https://www.countyofsb.org/ceo/oem/2016HMP.sbc',
   },
   {
+    id: 25,
     title: 'Santa Cruz County Climate Action Strategy',
     description: 'Vulnerability assessment looks at many different impacts of climate change, but focuses on sea level rise.  Report primarily lists the county assets that will be exposed to future threats.',
     pubdate: 2013,
@@ -325,6 +350,7 @@ export default [
     link: 'http://www.sccoplanning.com/Portals/2/County/Planning/policy/Climate%20Action%20Strategy/Climate%20Action%20Strategy.pdf?ver=2013-09-19-144013-903',
   },
   {
+    id: 26,
     title: "Restoring Surfers' Point: Partnership's Persistence Pays Off",
     description: "After ten years of striving for consensus, the Surfer's Point working group opted to retreat from the sea and use a soft solution to restore the natural habitat.  As of 2014, the beach at Surfers' Point has a 70-foot wide buffer zone and a significant sediment reservoir.",
     pubdate: 2017,
@@ -338,6 +364,7 @@ export default [
     link: 'https://toolkit.climate.gov/case-studies/restoring-surfers-point-partnerships-persistence-pays',
   },
   {
+    id: 27,
     title: 'Coastal Resilience Project - Monterey Bay',
     description: 'Decision-support network (including website) which includes short write ups about the challenges and suggested solutions for participating communities.  Also provides tools and information about coastal resilience.',
     pubdate: 2016,
@@ -351,6 +378,7 @@ export default [
     link: 'http://coastalresilience.org/project/monterey-bay/',
   },
   {
+    id: 28,
     title: 'Coastal Resilience Project - Santa Barbara',
     description: 'Decision-support network (including website) which includes short write ups about the challenges and suggested solutions for participating communities.  Also provides tools and information about coastal resilience.',
     pubdate: 2016,
@@ -364,6 +392,7 @@ export default [
     link: 'http://coastalresilience.org/project/santa-barbara-county/',
   },
   {
+    id: 29,
     title: 'Integrated Climate Change Adaptation Planning in San Luis Obispo County',
     description: 'A suite of sector specific adaptation strategies.  List is based the efforts of local leaders through a series of workshops held in 2009 - 2010.',
     pubdate: 2010,
@@ -377,6 +406,7 @@ export default [
     link: 'http://www.lgc.org/wordpress/docs/adaptation/slo/SLOClimateWiseFinal.pdf',
   },
   {
+    id: 30,
     title: 'Sea Level Rise Projections for Santa Cruz Hazard Mitigation Plan - Coastal Wetlands Group',
     description: 'An overview of the different sea level rise adaptation efforts that relate to or impact wetlands in the central coast.',
     pubdate: 2014,
@@ -390,6 +420,7 @@ export default [
     link: 'https://ccwg.mlml.calstate.edu/climate-change',
   },
   {
+    id: 31,
     title: 'The City of Santa Barbara Sea Level Rise Vulnerability Assessment - Brief Summary',
     description: 'Brief summary of the key points from the full vulnerability assessment.',
     pubdate: 2015,
@@ -403,6 +434,7 @@ export default [
     link: 'http://www.esm.ucsb.edu/research/2015Group_Projects/documents/SeaLevelRiseSB_Brief.pdf',
   },
   {
+    id: 32,
     title: 'Ventura County Sea-Level Rise Adaptation Project',
     description: 'A website providing summary information on the counties intended plan to draft regulatory and adaptive strategies in response to sea-level rise hazards.',
     pubdate: 2013,
@@ -416,6 +448,7 @@ export default [
     link: 'http://vcrma.org/planning/ordinances/sea-level-rise-adaptation.html',
   },
   {
+    id: 33,
     title: 'Coastal Resilience Ventura Catalogue and Analysis of Local Sea-Level Rise Planning Tools',
     description: 'A close look at the different decisions required to move sea level rise planning forward especially in the context of integrating into existing local planning efforts.',
     pubdate: 2013,
@@ -429,6 +462,7 @@ export default [
     link: 'https://www.conservationgateway.org/ConservationPractices/Marine/crr/library/Documents/Coastal%20Resilience%20Ventura%20Catalogue%20and%20Analysis%20of%20Local%20Sea%20Level%20Rise%20Planning%20Tools_%20The%20Planning%20Center_%202013.pdf',
   },
   {
+    id: 34,
     title: 'Economic Analysis of Nature-based Adaptation to Climate Change, Ventura County, California',
     description: 'Report provides a model cost benefit analysis to compare engineered solutions to nature based solutions for sea level rise.  Using Ventura County as an example, the report finds that under certain conditions, the natural solution produces greater net benefits than the engineered solution.',
     pubdate: 2015,
@@ -442,6 +476,7 @@ export default [
     link: 'https://www.conservationgateway.org/ConservationPractices/Marine/crr/library/Documents/FINAL_CRV NBA Econ Final Report March 2015 with appendices.pdf',
   },
   {
+    id: 35,
     title: 'Economic Impacts of Climate Adaptation Strategies for Southern Monterey Bay',
     description: 'Rigorous cost benefit analysis that compairs various climate adaptation strategies.',
     pubdate: 2016,
