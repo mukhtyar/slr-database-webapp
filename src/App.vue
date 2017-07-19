@@ -2,8 +2,8 @@
   <div id="app">
 
     <div class="row">
-      <div class="col-xs-8" tabindex="1">
-        <div class="category category-task" style="height:100%;">
+      <div class="col-xs-12" tabindex="1">
+        <div class="category category-task category-main">
           <div class="box">
             <h3>
               What are you working on?
@@ -15,14 +15,19 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="col-xs-4" tabindex="1" style="height:100%;">
-        <div class="category category-phase">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="category category-challenge category-main">
           <div class="box">
             <h3>
-              What stage are you at?
+              What challenges are you facing?
             </h3>
-            <phaseFilter v-on:change="updatePhaseFilters"></phaseFilter>
+            <p>
+              Select one or more challenges that you want to overcome.
+            </p>
+            <challengeFilter v-on:change="updateChallengeFilters"></challengeFilter>
           </div>
         </div>
       </div>
@@ -32,22 +37,34 @@
 
       <div class="col-xs-3" tabindex="1">
         <div class="row">
-          <div class="col-xs-12">
-            <div class="category category-challenge">
-              <div class="box">
-                <h3>
-                  What challenges are you facing?
-                </h3>
-                <challengeFilter v-on:change="updateChallengeFilters"></challengeFilter>
+
+        <div class="col-xs-12" tabindex="1" style="height:100%;">
+          <div class="category category-phase">
+            <div class="box">
+              <div v-if="rowsToRender.length != 0">
+                <p> Showing <span>{{ rowsToRender.length }}</span> resources. Click on a resource to see more details.</p>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="col-xs-12" tabindex="1" style="height:100%;">
+          <div class="category category-phase">
+            <div class="box">
+              <h5>
+                Filter by Planning Phase:
+              </h5>
+              <phaseFilter v-on:change="updatePhaseFilters"></phaseFilter>
+            </div>
+          </div>
+        </div>
+          
           <div class="col-xs-12">
             <div class="category category-resource">
               <div class="box">
-                <h5>
+                <h4>
                   Filter by Region:
-                </h5>
+                </h4>
                 <regionFilter v-on:change="updateRegionFilter"></regionFilter>
               </div>
             </div>
@@ -57,9 +74,6 @@
       </div>
 
       <div class="col-xs-9 results" tabindex="1">
-        <div class="green" div v-if="rowsToRender.length != 0">
-          <span>{{ rowsToRender.length }}</span> resources. Click on a resource to see more details.
-        </div>
         <transition-group name="list">
           <div v-for="row in rowsToRender" @click="displayRowDetail(row)" :key="row.id" class="article">
             <h6 class="article-title">{{ row.title }}</h6>

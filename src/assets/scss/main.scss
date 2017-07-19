@@ -58,6 +58,7 @@ $border-color: #DADADA;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    overflow-y: scroll;
 }
 
 
@@ -297,7 +298,7 @@ header {
 
   .category {
 
-    h3 {
+    h3, h4, h5 {
       margin-top: 10px;
       margin-bottom: 10px;
     }
@@ -329,9 +330,29 @@ header {
 
   }
 
-  .category-task {
+  .category-main {
+    .box {
+      text-align: center;
+    }
+
+    .container {
+      padding: 2vh 2vw;
+    }
+
     .checkbox {
       width: 50%;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+  }
+
+  .category-challenge {
+    .checkbox {
+      width: 33.333%;
+      margin: 0;
     }
   }
 
