@@ -38,13 +38,15 @@
         <h5>List of Adaptation Resources</h5>
         <div class="inline-list">
           <span>Selected Tasks:</span>
-          <ul>
+          <span v-if="taskFilters.length == 0">Any</span>
+          <ul v-else>
             <li v-for="item in taskFilters">{{ item.shorttext }}</li>
           </ul>
         </div>
          <div class="inline-list">
           <span>Selected Challenges:</span>
-          <ul>
+          <span v-if="challengeFilters.length == 0">Any</span>
+          <ul v-else>
             <li v-for="item in challengeFilters">{{ item.text }}</li>
           </ul>
         </div>
@@ -232,12 +234,12 @@ export default {
       modal.setContent(`
         <div class="article detail">
           <h5 class="article-title">${row.title}</h5>
-          <div class="list article-authors">
+          <div class="inline-list article-authors">
             <ul>
               ${row.author.map(author => `<li class="author">${author}</li>`)}
             </ul>
           </div>
-          <div class="list">
+          <div class="inline-list">
             <span class="article-date green">${row.pubdate}</span>
             <ul class="article-type">
               ${row.resourceType.map(item => `<li class="tag">${resourceTypes[item].text}</li>`)}
@@ -246,7 +248,7 @@ export default {
               ${row.county.map(item => `<li class="purple">${counties[item].name} County</li>`)}
             </ul>
           </div>
-          <div class="list article-keywords">
+          <div class="inline-list article-keywords">
             <span>Keywords:</span>
             <ul>
               ${row.keywords.map(item => `<li class="keyword">${item}</li>`)}
