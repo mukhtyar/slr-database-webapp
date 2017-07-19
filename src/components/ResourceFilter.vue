@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import options from './../assets/data/region';
+import options from './../assets/data/resource';
 
 export default {
-  name: 'regionFilter',
+  name: 'resourceFilter',
 
   data() {
     return {

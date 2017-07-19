@@ -37,7 +37,7 @@ export default [
   },
   {
     id: 10,
-    text: 'Training/workshop /webinar',
+    text: 'Training/workshop/webinar',
   },
   {
     id: 11,

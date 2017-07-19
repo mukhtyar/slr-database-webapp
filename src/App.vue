@@ -33,65 +33,82 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row results-header"  data-margin-top="-10">
+      <div class="col-xs-12">
+        <h5>List of Adaptation Resources</h5>
+        <div class="inline-list">
+          <span>Selected Tasks:</span>
+          <ul>
+            <li v-for="item in taskFilters">{{ item.shorttext }}</li>
+          </ul>
+        </div>
+         <div class="inline-list">
+          <span>Selected Challenges:</span>
+          <ul>
+            <li v-for="item in challengeFilters">{{ item.text }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-      <div class="col-xs-3" tabindex="1">
+    <div class="row results-main">
+
+      <div class="col-xs-3 results-sidebar" tabindex="1">
         <div class="row">
-
-        <div class="col-xs-12" tabindex="1" style="height:100%;">
-          <div class="category category-phase">
-            <div class="box">
-              <div v-if="rowsToRender.length != 0">
-                <p> Showing <span>{{ rowsToRender.length }}</span> resources. Click on a resource to see more details.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xs-12" tabindex="1" style="height:100%;">
-          <div class="category category-phase">
-            <div class="box">
-              <h5>
-                Filter by Planning Phase:
-              </h5>
-              <phaseFilter v-on:change="updatePhaseFilters"></phaseFilter>
-            </div>
-          </div>
-        </div>
-          
-          <div class="col-xs-12">
+          <div class="col-xs-12" tabindex="1" style="height:100%;">
             <div class="category category-resource">
               <div class="box">
-                <h4>
-                  Filter by Region:
-                </h4>
+                <h6>
+                  View Resources for Region:
+                </h6>
                 <regionFilter v-on:change="updateRegionFilter"></regionFilter>
               </div>
             </div>
+            <div class="category category-resource">
+              <div class="box">
+                <h6>
+                  Filter by Resource Type:
+                </h6>
+                <resourceFilter v-on:change="updateResourceFilter"></resourceFilter>
+              </div>
+            </div>
+            <div class="category category-phase">
+              <div class="box">
+                <h6>
+                  Filter by Planning Phase:
+                </h6>
+                <phaseFilter v-on:change="updatePhaseFilters"></phaseFilter>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
 
-      <div class="col-xs-9 results" tabindex="1">
+      <div class="col-xs-9 results-list" tabindex="1">
+        <div v-if="rowsToRender.length != 0">
+          <p class="green"> Showing <span>{{ rowsToRender.length }}</span> resources. Click on a resource to see more details.</p>
+        </div>
+        <div v-if="rowsToRender.length == 0">
+          <p class="message">Sorry, no resources were found matching the criteria you selected.</p>
+        </div>
         <transition-group name="list">
           <div v-for="row in rowsToRender" @click="displayRowDetail(row)" :key="row.id" class="article">
             <h6 class="article-title">{{ row.title }}</h6>
-            <div class="list article-authors">
+            <div class="inline-list article-authors">
               <ul>
                 <li v-for="author in row.author" class="author">{{ author }}</li>
               </ul>
             </div>
-            <div class="list">
+            <div class="inline-list">
               <span class="article-date green">{{ row.pubdate }}</span>
               <ul class="article-type">
-                <li v-for="item in row.resourceType" class="tag">{{ resourceTypes[item].text }}</li>
+                <li v-for="key in row.resourceType" class="tag">{{ resourceTypes.find(d => d.id === key).text }}</li>
               </ul>
               <ul class="article-location">
-                <li v-for="item in row.county" class="purple">{{ counties[item].name }} County</li>
+                <li v-for="key in row.county" class="purple">{{ counties.find(d => d.id === key).name }} County</li>
               </ul>
             </div>
-            <div class="list article-keywords">
+            <div class="inline-list article-keywords">
               <span>Keywords:</span>
               <ul>
                 <li v-for="keyword in row.keywords" class="keyword">{{ keyword }}</li>
@@ -99,12 +116,11 @@
             </div>
           </div>
         </transition-group>
-        <div v-if="rowsToRender.length == 0">
-          <p class="message">Sorry, no resources were found matching the criteria you selected.</p>
-        </div>
       </div>
 
     </div>
+
+    </section>
 
   </div>
 </template>
@@ -116,6 +132,7 @@ import PhaseFilter from './components/PhaseFilter';
 import ChallengeFilter from './components/ChallengeFilter';
 import TaskFilter from './components/TaskFilter';
 import RegionFilter from './components/RegionFilter';
+import ResourceFilter from './components/ResourceFilter';
 import data from './assets/data/data';
 import resourceTypes from './assets/data/resource';
 import counties from './assets/data/county';
@@ -130,6 +147,7 @@ export default {
     PhaseFilter,
     TaskFilter,
     RegionFilter,
+    ResourceFilter,
   },
   data() {
     return {
@@ -137,7 +155,8 @@ export default {
       phaseFilters: [],
       challengeFilters: [],
       taskFilters: [],
-      regionFilter: null,
+      regionFilter: '',
+      resourceFilter: '',
       resourceTypes,
       counties,
       regions,
@@ -146,10 +165,11 @@ export default {
   computed: {
     rowsToRender() {
       let filtered = this.data;
-      const phases = this.phaseFilters;
-      const challenges = this.challengeFilters;
-      const tasks = this.taskFilters;
+      const phases = this.phaseFilters.map(d => d.id);
+      const challenges = this.challengeFilters.map(d => d.id);
+      const tasks = this.taskFilters.map(d => d.id);
       const region = this.regionFilter;
+      const resource = this.resourceFilter;
       if (tasks.length > 0) {
         filtered = filtered.filter(item => findOne(item.task, tasks));
       }
@@ -159,11 +179,17 @@ export default {
       if (phases.length > 0) {
         filtered = filtered.filter(item => findOne(item.phase, phases));
       }
-      if (this.regionFilter && this.regionFilter !== '') {
+      if (region) {
         filtered = filtered.filter((item) => {
           const countyId = item.county;
           const regionArr = counties[countyId].region;
           return regionArr.some(v => v === region);
+        });
+      }
+      if (resource) {
+        filtered = filtered.filter((item) => {
+          const resourceArr = item.resourceType;
+          return resourceArr.some(v => v === resource);
         });
       }
 
@@ -172,21 +198,23 @@ export default {
   },
   methods: {
     updatePhaseFilters(value) {
-      this.phaseFilters = value.map(d => d.id);
+      this.phaseFilters = value;
     },
     updateChallengeFilters(value) {
-      this.challengeFilters = value.map(d => d.id);
+      this.challengeFilters = value;
     },
     updateTaskFilters(value) {
-      this.taskFilters = value.map(d => d.id);
+      this.taskFilters = value;
     },
     updateRegionFilter(value) {
       this.regionFilter = value;
     },
+    updateResourceFilter(value) {
+      this.resourceFilter = value;
+    },
     displayRowDetail(row) {
-      console.log(row);
+      // instantiate new modal
       /* eslint-disable */
-      // instanciate new modal
       const modal = new tingle.modal({
         footer: true,
         stickyFooter: false,
@@ -196,8 +224,9 @@ export default {
         beforeClose() {
           console.log('increment count');
           return true; // close the modal
-        }
+        },
       });
+      /* eslint-enable */
 
       // set content
       modal.setContent(`
